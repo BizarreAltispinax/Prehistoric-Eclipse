@@ -1,0 +1,12 @@
+{
+    "dakoraptor_hurt": {
+        "sounds": [
+            "pe:dakoraptor/dakota_hurt1"
+        ]
+    },
+        "plesiosaurus_hurt": {
+        "sounds": [
+            "pe:plesiosaurus/plesio_hurt_1"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "pe",
+  "name": "Prehistoric Eclipse",
+  "description": "Venture into the times of the dinosaurs!",
+  "version": "0.10 beta",
+  "mcversion": "1.12",
+  "url": "https://minecraft.curseforge.com/projects/prehistoric-eclipse",
+  "updateUrl": "https://minecraft.curseforge.com/projects/prehistoric-eclipse/files",
+  "authorList": ["Geometrically", "Fluffy Taco", "BizarreAltispinax"],
+  "credits": "Prehistoric Eclipse Mod Team",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["forge", "obsidian_api"]
+}
+]
