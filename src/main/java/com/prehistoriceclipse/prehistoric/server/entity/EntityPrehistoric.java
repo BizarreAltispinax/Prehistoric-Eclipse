@@ -2,10 +2,7 @@ package com.prehistoriceclipse.prehistoric.server.entity;
 
 import com.dabigjoe.obsidianAPI.animation.wrapper.IEntityAnimated;
 import com.prehistoriceclipse.prehistoric.server.entity.dinosaur.EntityDinosaur;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,6 +24,8 @@ public class EntityPrehistoric extends EntityTameable implements IEntityAnimated
     public boolean isAttacking = false;
     private int attackingTimer = 0;
     private double normalSpeed = 0;
+    public EntityPrehistoric kingTarget = null;
+    public boolean isKing = false;
 
     public EntityPrehistoric(World world) {
         super(world);
