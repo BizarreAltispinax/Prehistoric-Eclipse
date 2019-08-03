@@ -96,4 +96,14 @@ public class EntityVelociraptor extends EntityCarnivore {
     public int getMaxSpawnedInChunk() {
         return 6;
     }
+
+    @Override
+    public float getFallResistance() {
+        return 100;
+    }
+
+    @Override
+    public double getFallingMod() {
+        return 0.9D;
+    }
 }

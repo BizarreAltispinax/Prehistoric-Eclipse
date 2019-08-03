@@ -100,6 +100,12 @@ public class EntityPrehistoric extends EntityTameable implements IEntityAnimated
                 this.attackingTimer = 0;
             }
         }
+
+        // Falling Speed:
+        if(!this.onGround && this.motionY < 0.0D) {
+            this.motionY *= this.getFallingMod();
+        }
+
         super.onLivingUpdate();
     }
 
@@ -115,6 +121,24 @@ public class EntityPrehistoric extends EntityTameable implements IEntityAnimated
 
     public EntityPrehistoric createChild(EntityAgeable dinosaur) {
         return new EntityPrehistoric(this.world);
+    }
+
+    @Override
+    public void fall(float distance, float damageMultiplier) {
+        this.fallDistance -= this.getFallResistance();
+        if(this.getFallResistance() >= 100)
+            this.fallDistance = 0;
+        super.fall(this.fallDistance, damageMultiplier);
+    }
+
+    /** How far (in blocks) this entity can fall without taking damage, if set to 100 or higher all fall damage is ignored, this is in addition to the default safe falling distance. **/
+    public float getFallResistance() {
+        return 0;
+    }
+
+    /** Used to change the falling speed of this entity, 1.0D does nothing. **/
+    public double getFallingMod() {
+        return 1.0D;
     }
 
 }

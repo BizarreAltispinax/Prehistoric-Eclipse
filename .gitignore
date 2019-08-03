@@ -16,7 +16,13 @@ out
 # gradle
 build
 .gradle
+GradleHome
+
+# blender
+*.blend1
 
 # other
 eclipse
 run
+classes
+Media
