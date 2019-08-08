@@ -1,20 +1,12 @@
 package com.prehistoriceclipse.prehistoric.server.entity.dinosaur.carnivore;
 
-import javax.annotation.Nullable;
-
-import com.google.common.base.Predicate;
 import com.prehistoriceclipse.prehistoric.server.Reference;
 import com.prehistoriceclipse.prehistoric.server.entity.ai.EntityAIDinoMate;
 import com.prehistoriceclipse.prehistoric.server.entity.ai.animation.EntityAIEat;
 import com.prehistoriceclipse.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
-import com.prehistoriceclipse.prehistoric.server.entity.dinosaur.EntityDinosaur;
-import com.prehistoriceclipse.prehistoric.server.entity.flying.EntityDragonfly;
-
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAITargetNonTamed;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -67,49 +59,59 @@ public class EntityArchaeopteryx extends EntityCarnivore {
 	    {
 	        return (double)(this.height * 0.5F);
 	    }
-	    protected PathNavigate createNavigator(World worldIn)
-	    {
-	        return new PathNavigateClimber(this, worldIn);
-	    }
+	protected PathNavigate createNavigator(World worldIn)
+	{
+	return new PathNavigateClimber(this, worldIn);
+	}
 
-	    protected void entityInit()
-	    {
-	        super.entityInit();
-	        this.dataManager.register(CLIMBING, Byte.valueOf((byte)0));
-	    }
-	
-	    public boolean isOnLadder()
-	    {
-	        return this.isBesideClimbableBlock();
-	    }
-	    
-	    public boolean isBesideClimbableBlock()
-	    {
-	        return (((Byte)this.dataManager.get(CLIMBING)).byteValue() & 1) != 0;
-	    }
-	    
-	    public void setInWeb()
-	    {
-	    }
+	protected void entityInit()
+	{
+		super.entityInit();
+		this.dataManager.register(CLIMBING, Byte.valueOf((byte)0));
+	}
 
-	    public void setBesideClimbableBlock(boolean climbing)
-	    {
-	        byte b0 = ((Byte)this.dataManager.get(CLIMBING)).byteValue();
+	public boolean isOnLadder()
+	{
+	return this.isBesideClimbableBlock();
+	}
 
-	        if (climbing)
-	        {
-	            b0 = (byte)(b0 | 1);
-	        }
-	        else
-	        {
-	            b0 = (byte)(b0 & -2);
-	        }
+	public boolean isBesideClimbableBlock()
+	{
+	return (((Byte)this.dataManager.get(CLIMBING)).byteValue() & 1) != 0;
+	}
 
-	        this.dataManager.set(CLIMBING, Byte.valueOf(b0));
-	    }
-	    
-	    public EnumCreatureAttribute getCreatureAttribute()
+	public void setInWeb()
+	{
+	}
+
+	public void setBesideClimbableBlock(boolean climbing)
+	{
+		byte b0 = ((Byte)this.dataManager.get(CLIMBING)).byteValue();
+
+		if (climbing)
+		{
+			b0 = (byte)(b0 | 1);
+		}
+		else
+		{
+			b0 = (byte)(b0 & -2);
+		}
+
+		this.dataManager.set(CLIMBING, Byte.valueOf(b0));
+	}
+
+	public EnumCreatureAttribute getCreatureAttribute()
 	    {
 	        return EnumCreatureAttribute.ARTHROPOD;
 	    }
+
+	@Override
+	public float getFallResistance() {
+		return 100;
+	}
+
+	@Override
+	public double getFallingMod() {
+		return 0.9D;
+	}
 }
