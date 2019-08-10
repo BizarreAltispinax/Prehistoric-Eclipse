@@ -6,7 +6,6 @@ import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import com.prehistoriceclipse.prehistoric.server.entity.EntityPrehistoric;
 import com.prehistoriceclipse.prehistoric.server.init.PEEntities;
 
 import java.util.ArrayList;

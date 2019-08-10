@@ -21,6 +21,8 @@ public class EntityPrehistoric extends EntityTameable implements IEntityAnimated
 
     private static final DataParameter<Integer> VARIANT = EntityDataManager.<Integer>createKey(EntityDinosaur.class, DataSerializers.VARINT);
 
+	public static Object type;
+
     public boolean isAttacking = false;
     private int attackingTimer = 0;
     private double normalSpeed = 0;
@@ -139,5 +141,9 @@ public class EntityPrehistoric extends EntityTameable implements IEntityAnimated
     public double getFallingMod() {
         return 1.0D;
     }
+
+	public int getGender() {
+		return 0;
+	}
 
 }

@@ -32,7 +32,7 @@ public class EntityAIHerd extends EntityAIBase {
         EntityLiving king = this.getKing();
         double nearDistance = this.distance / 2;
         if (king != null && this.entity.getDistanceSqToEntity(king) > nearDistance * nearDistance) {
-            this.entity.getMoveHelper().setMoveTo(king.posX, king.posY, king.posZ, 1.0D);
+            this.entity.getMoveHelper().setMoveTo(king.posX, king.posY, king.posZ, 3.0D);
         }
         super.updateTask();
     }

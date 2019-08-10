@@ -3,6 +3,7 @@ package com.prehistoriceclipse.prehistoric.server.entity.dinosaur.herbivore;
 import com.prehistoriceclipse.prehistoric.server.Reference;
 import com.prehistoriceclipse.prehistoric.server.entity.ai.EntityAIDefense;
 import com.prehistoriceclipse.prehistoric.server.entity.ai.EntityAIDinoMate;
+import com.prehistoriceclipse.prehistoric.server.entity.ai.EntityAIHerd;
 import com.prehistoriceclipse.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
 import com.prehistoriceclipse.prehistoric.server.entity.dinosaur.carnivore.*;
 import net.minecraft.entity.EntityAgeable;
@@ -23,6 +24,7 @@ public class EntityPlateosaurus extends EntityHerbivore{
     protected void initEntityAI()
     {
         super.initEntityAI();
+        this.tasks.addTask(0, new EntityAIHerd(this));
         this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityCeratosaurus.class, 15.0F));
         this.targetTasks.addTask(0, new EntityAINearestAttackableTarget(this, EntityCeratosaurus.class, true));
         this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityDakotaraptor.class, 15.0F));
